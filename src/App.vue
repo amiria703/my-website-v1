@@ -6,7 +6,9 @@
     <div class="texts">
       <div class="text">سلام! ✋ من امیرحسین ماهر هستم</div>
       <div class="text">برنامه‌نویس و طراح وب</div>
-      <div class="text">این صفحه اینترنتی با VueJS ساخته و توسط {{browser}}</div>
+      <div class="text">
+        این صفحه اینترنتی با VueJS ساخته و توسط {{ browser }}
+      </div>
     </div>
     <div class="portfolios">
       <div class="portfolio"></div>
@@ -23,33 +25,32 @@ export default {
   name: "App",
   components: {},
   data: function () {
-    let browser
-    return { browser };
+    return {};
   },
-  mounted: {
-    detectBrowser: function () {
-      if (
-        (navigator.userAgent.indexOf("Opera") ||
-          navigator.userAgent.indexOf("OPR")) != -1
-      ) {
-        this.$data.browser = "ااپرا";
-      } else if (navigator.userAgent.indexOf("Edg") != -1) {
-        this.$data.browser = "اِدج";
-      } else if (navigator.userAgent.indexOf("Chrome") != -1) {
-        this.$data.browser = "کروم";
-      } else if (navigator.userAgent.indexOf("Safari") != -1) {
-        this.$data.browser = "سافاری";
-      } else if (navigator.userAgent.indexOf("Firefox") != -1) {
-        this.$data.browser = "فایرفاکس";
-      } else if (
-        navigator.userAgent.indexOf("MSIE") != -1 ||
-        !!document.documentMode == true
-      ) {
-        this.$data.browser = "اینترنت اکسپلورر";
-      } else {
-        this.$data.browser = "مرورگر";
-      }
-    },
+  computed: function () {
+    return {
+      browser: function () {
+        if (
+          (navigator.userAgent.indexOf("Opera") ||
+            navigator.userAgent.indexOf("OPR")) != -1
+        ) {
+          return "اُپِرا";
+        } else if (navigator.userAgent.indexOf("Edg") != -1) {
+          return "اِدج";
+        } else if (navigator.userAgent.indexOf("Chrome") != -1) {
+          return "کُروم";
+        } else if (navigator.userAgent.indexOf("Safari") != -1) {
+          return "سافاری";
+        } else if (navigator.userAgent.indexOf("Firefox") != -1) {
+          return "فایرفاکس";
+        } else if (
+          navigator.userAgent.indexOf("MSIE") != -1 ||
+          !!document.documentMode == true
+        ) {
+          return "اینترنت اکسپلورر";
+        }
+      },
+    };
   },
 };
 </script>

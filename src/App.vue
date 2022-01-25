@@ -23,7 +23,8 @@ export default {
   name: "App",
   components: {},
   data: function () {
-    return { browser: String };
+    let browser
+    return { browser };
   },
   mounted: {
     detectBrowser: function () {

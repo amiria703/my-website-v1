@@ -6,15 +6,18 @@
     <div class="texts">
       <div class="text">سلام! ✋ من امیرحسین ماهر هستم</div>
       <div class="text">برنامه‌نویس و طراح وب</div>
-      <div class="text">
-        این صفحه اینترنتی با VueJS ساخته و توسط {{ browser }}
-      </div>
+      <div class="text">در ادامه تعدادی از نمونه‌کارهای بنده رو مشاهده می‌کنید:</div>
     </div>
     <div class="portfolios">
       <div class="portfolio"></div>
     </div>
     <div class="links">
       <div class="link"><a href=""></a></div>
+    </div>
+    <div class="texts">
+      <div class="text">
+        این صفحه اینترنتی با VueJS ساخته و توسط {{ browser }} به نمایش درآمده است
+      </div>
     </div>
   </div>
 </template>
@@ -27,30 +30,34 @@ export default {
   data: function () {
     return {};
   },
-  computed: function () {
-    return {
-      browser: function () {
-        if (
-          (navigator.userAgent.indexOf("Opera") ||
-            navigator.userAgent.indexOf("OPR")) != -1
-        ) {
-          return "اُپِرا";
-        } else if (navigator.userAgent.indexOf("Edg") != -1) {
-          return "اِدج";
-        } else if (navigator.userAgent.indexOf("Chrome") != -1) {
-          return "کُروم";
-        } else if (navigator.userAgent.indexOf("Safari") != -1) {
-          return "سافاری";
-        } else if (navigator.userAgent.indexOf("Firefox") != -1) {
-          return "فایرفاکس";
-        } else if (
-          navigator.userAgent.indexOf("MSIE") != -1 ||
-          !!document.documentMode == true
-        ) {
-          return "اینترنت اکسپلورر";
-        }
-      },
-    };
+  mounted: async function(){
+    await new Promise(r => setTimeout(r, 2000))
+    document.getElementById("white").style.display = "none"
+  },
+  computed: {
+    browser: function () {
+      if (
+        (navigator.userAgent.indexOf("Opera") ||
+          navigator.userAgent.indexOf("OPR")) != -1
+      ) {
+        return "اُپِرا";
+      } else if (navigator.userAgent.indexOf("Edg") != -1) {
+        return "اِدج";
+      } else if (navigator.userAgent.indexOf("Chrome") != -1) {
+        return "کُروم";
+      } else if (navigator.userAgent.indexOf("Safari") != -1) {
+        return "سافاری";
+      } else if (navigator.userAgent.indexOf("Firefox") != -1) {
+        return "فایرفاکس";
+      } else if (
+        navigator.userAgent.indexOf("MSIE") != -1 ||
+        !!document.documentMode == true
+      ) {
+        return "اینترنت اکسپلورر";
+      } else {
+        return "مرورگر"
+      }
+    },
   },
 };
 </script>
@@ -60,6 +67,9 @@ export default {
 </style>
 
 <style>
+.white {
+  display: none;
+}
 @font-face {
   font-family: Vazir;
   src: url("./assets/fonts/Vazir-Regular.eot");

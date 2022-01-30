@@ -1,23 +1,23 @@
 <template>
   <div id="app">
-    <div class="image">
-      <img id="profile" src="./assets/images/logo.png" alt="logo" />
-    </div>
-    <div class="texts">
-      <div class="text">سلام! ✋ من امیرحسین ماهر هستم</div>
-      <div class="text">برنامه‌نویس و طراح وب</div>
-      <div class="text">در ادامه تعدادی از نمونه‌کارهای بنده رو مشاهده می‌کنید:</div>
-    </div>
+    <div class="bg"></div>
+    <header>
+      <div class="image">
+        <img id="profile" src="./assets/images/logo.svg" alt="logo" />
+      </div>
+    </header>
+    <div class="texts"></div>
     <div class="portfolios">
-      <div class="portfolio"></div>
+      <div class="portfolio"><img src="" alt="" class="" /></div>
     </div>
     <div class="links">
       <div class="link"><a href=""></a></div>
     </div>
     <div class="texts">
-      <div class="text">
-        این صفحه اینترنتی با VueJS ساخته و توسط {{ browser }} به نمایش درآمده است
-      </div>
+      <!-- <div class="text">
+        این صفحه اینترنتی با VueJS ساخته و توسط {{ browser }} به نمایش درآمده
+        است
+      </div> -->
     </div>
   </div>
 </template>
@@ -30,9 +30,11 @@ export default {
   data: function () {
     return {};
   },
-  mounted: async function(){
-    await new Promise(r => setTimeout(r, 2000))
-    document.getElementById("white").style.display = "none"
+  mounted: async function () {
+    await new Promise((r) => setTimeout(r, 2500));
+    document.getElementById("white").classList.add("hidden");
+    await new Promise((r) => setTimeout(r, 500));
+    document.getElementById("white").remove();
   },
   computed: {
     browser: function () {
@@ -55,7 +57,7 @@ export default {
       ) {
         return "اینترنت اکسپلورر";
       } else {
-        return "مرورگر"
+        return "مرورگر";
       }
     },
   },
@@ -67,9 +69,6 @@ export default {
 </style>
 
 <style>
-.white {
-  display: none;
-}
 @font-face {
   font-family: Vazir;
   src: url("./assets/fonts/Vazir-Regular.eot");
@@ -83,11 +82,34 @@ export default {
 }
 #app {
   direction: rtl;
-  text-align: center;
   font-family: Vazir;
 }
-.image #profile {
-  width: 10rem;
-  height: 10rem;
+#profile {
+  width: 7rem;
+  height: 7rem;
+}
+.image {
+  height: 7rem;
+}
+header {
+  margin-bottom: 0.5rem;
+  /* background: #7e11ad; */
+  padding: 0.5rem;
+}
+.bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+.background {
+  background: radial-gradient(
+    circle,
+    rgba(193, 255, 209, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  z-index: -999;
+}
+.white {
+  z-index: -998;
 }
 </style>

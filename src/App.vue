@@ -12,25 +12,52 @@
     <div class="box">
       <div class="title bottom-line">About Me:</div>
       <p class="text">
-        Hello Guys! I'm Amir Hossein Maher or in digital world, "amiria703"
+        Hello Guys! I'm Amir Hossein Maher or in the digital world, "amiria703"
         who's a 16 y.o. boy studying Math-Physics in 10th grade.
         <br />
-        I'm a tech-lover who loves code and development; Also, I love one of the
-        wonderful sutpid creature ever called Computer. Computers do as you
-        command, I love this habit of them.
+        I'm a tech-lover who loves coding and development; Also, I love one of
+        the most wonderful stupid creatures ever called Computer. Computers do
+        as you command, I love this habit of them.
         <br />
-        For now, I'm looking for a part/half time freelancing or Face-to-face
-        job in Karaj, Alborz Province, Iran (It's where I live).
+        For now, I'm looking for a part-time/half-time freelancing or
+        Face-to-face job in Karaj, Alborz Province, Iran (It's where I live).
       </p>
     </div>
     <div class="box">
       <div class="title bottom-line">My Skills:</div>
-      <div class="text">Here's some of skills I have in the technology world:</div>
-      <div class="skill">HTML CSS JS:</div> 70%
+      <div class="skill-text">HTML: 90%</div>
+      <div class="skill-red">
+        <div class="skill-90"></div>
+      </div>
     </div>
     <div class="box">
       <div class="title bottom-line">My Portfolios:</div>
-      <div class="portfolio"><img src="" alt="" class="" /></div>
+      <div class="portfolios">
+        <div class="portfolio box">
+          <img
+            src="./assets/images/temp.jpg"
+            alt="portfolio-picture"
+            class="portfolio-img"
+          />
+          <div class="text">My Own Website</div>
+        </div>
+        <div class="portfolio box">
+          <img
+            src="./assets/images/temp.jpg"
+            alt="portfolio-picture"
+            class="portfolio-img"
+          />
+          <div class="text">My Own Website</div>
+        </div>
+        <div class="portfolio box">
+          <img
+            src="./assets/images/temp.jpg"
+            alt="portfolio-picture"
+            class="portfolio-img"
+          />
+          <div class="text">My Own Website</div>
+        </div>
+      </div>
     </div>
     <div class="links">
       <div class="link"><a href=""></a></div>
@@ -126,32 +153,29 @@ header {
   align-items: center;
 }
 .bg {
-  width: 100%;
-  height: 100%;
   position: fixed;
+  z-index: -999;
 }
 .bg-green {
   background: radial-gradient(
     circle,
     rgba(193, 255, 209, 1) 0%,
-    rgba(255, 255, 255, 1) 60%
+    rgba(255, 255, 255, 0) 60%
   );
-  z-index: -999;
-  width: 30%;
-  height: 30%;
+  width: 30rem;
+  height: 30rem;
   left: 52%;
-  top: 20%;
+  top: 10%;
   opacity: 20%;
 }
 .bg-blue {
   background: radial-gradient(
     circle,
     rgb(94, 157, 216) 0%,
-    rgba(255, 255, 255, 1) 40%
+    rgba(255, 255, 255, 0) 40%
   );
-  z-index: -999;
-  width: 30%;
-  height: 30%;
+  width: 30rem;
+  height: 30rem;
   opacity: 25%;
   left: 10%;
   top: 30%;
@@ -160,11 +184,10 @@ header {
   background: radial-gradient(
     circle,
     rgba(126, 17, 173, 1) 0%,
-    rgba(255, 255, 255, 1) 40%
+    rgba(255, 255, 255, 0) 40%
   );
-  z-index: -999;
-  width: 40%;
-  height: 40%;
+  width: 40rem;
+  height: 40rem;
   left: 25%;
   top: 50%;
   opacity: 30%;
@@ -180,12 +203,36 @@ header {
   border-radius: 1rem;
   margin: 1rem;
 }
-.text {
-  margin: 1rem 0 0rem 0;
-}
 .bottom-line {
   padding-bottom: 0.5rem;
   border: solid #000;
   border-width: 0 0 1px 0;
+  margin-bottom: 1rem;
+}
+.portfolios {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.portfolio {
+  width: -webkit-fill-available;
+  max-width: 25rem;
+}
+.portfolio-img {
+  width: -webkit-fill-available;
+}
+.skill-text {
+  font-size: 20pt;
+}
+.skill-red {
+  background: lightcoral;
+  height: 1.5rem;
+  width: 50%;
+}
+.skill-90 {
+  width: 90%;
+  background: red;
+  height: 1.5rem;
 }
 </style>

@@ -1,13 +1,35 @@
 <template>
   <div id="app">
-    <div class="bg"></div>
+    <div class="bg bg-purple"></div>
+    <div class="bg bg-green"></div>
+    <div class="bg bg-blue"></div>
     <header>
-      <div class="image">
-        <img id="profile" src="./assets/images/logo.svg" alt="logo" />
+      <div class="logo">
+        <img id="logo" src="./assets/images/logo.svg" alt="logo" />
       </div>
+      <div class="title font-karla">The "Amiria703" Personal Website</div>
     </header>
-    <div class="texts"></div>
-    <div class="portfolios">
+    <div class="box">
+      <div class="title bottom-line">About Me:</div>
+      <p class="text">
+        Hello Guys! I'm Amir Hossein Maher or in digital world, "amiria703"
+        who's a 16 y.o. boy studying Math-Physics in 10th grade.
+        <br />
+        I'm a tech-lover who loves code and development; Also, I love one of the
+        wonderful sutpid creature ever called Computer. Computers do as you
+        command, I love this habit of them.
+        <br />
+        For now, I'm looking for a part/half time freelancing or Face-to-face
+        job in Karaj, Alborz Province, Iran (It's where I live).
+      </p>
+    </div>
+    <div class="box">
+      <div class="title bottom-line">My Skills:</div>
+      <div class="text">Here's some of skills I have in the technology world:</div>
+      <div class="skill">HTML CSS JS:</div> 70%
+    </div>
+    <div class="box">
+      <div class="title bottom-line">My Portfolios:</div>
       <div class="portfolio"><img src="" alt="" class="" /></div>
     </div>
     <div class="links">
@@ -69,6 +91,9 @@ export default {
 </style>
 
 <style>
+/* Google Fonts: */
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@1,600&family=Titillium+Web:wght@300&display=swap");
+/* 
 @font-face {
   font-family: Vazir;
   src: url("./assets/fonts/Vazir-Regular.eot");
@@ -79,37 +104,88 @@ export default {
     url("./assets/fonts/Vazir-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-}
+} */
 #app {
-  direction: rtl;
-  font-family: Vazir;
+  direction: ltr;
+  font-family: "Titillium Web", sans-serif;
 }
-#profile {
+.font-karla {
+  font-family: "Karla", sans-serif;
+}
+#logo {
   width: 7rem;
   height: 7rem;
 }
-.image {
+.logo {
   height: 7rem;
+  margin-right: 10px;
 }
 header {
-  margin-bottom: 0.5rem;
-  /* background: #7e11ad; */
   padding: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 .bg {
   width: 100%;
   height: 100%;
   position: fixed;
 }
-.background {
+.bg-green {
   background: radial-gradient(
     circle,
     rgba(193, 255, 209, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
+    rgba(255, 255, 255, 1) 60%
   );
   z-index: -999;
+  width: 30%;
+  height: 30%;
+  left: 52%;
+  top: 20%;
+  opacity: 20%;
 }
-.white {
-  z-index: -998;
+.bg-blue {
+  background: radial-gradient(
+    circle,
+    rgb(94, 157, 216) 0%,
+    rgba(255, 255, 255, 1) 40%
+  );
+  z-index: -999;
+  width: 30%;
+  height: 30%;
+  opacity: 25%;
+  left: 10%;
+  top: 30%;
+}
+.bg-purple {
+  background: radial-gradient(
+    circle,
+    rgba(126, 17, 173, 1) 0%,
+    rgba(255, 255, 255, 1) 40%
+  );
+  z-index: -999;
+  width: 40%;
+  height: 40%;
+  left: 25%;
+  top: 50%;
+  opacity: 30%;
+}
+.title {
+  color: #7e11ad;
+  font-size: 31pt;
+}
+.box {
+  padding: 1rem;
+  box-shadow: 0px 0px 8px -5px #000000;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 1rem;
+  margin: 1rem;
+}
+.text {
+  margin: 1rem 0 0rem 0;
+}
+.bottom-line {
+  padding-bottom: 0.5rem;
+  border: solid #000;
+  border-width: 0 0 1px 0;
 }
 </style>

@@ -1,0 +1,61 @@
+<template>
+  <div class="portfolios text-bigger">
+        <box class="portfolio" v-for="item in portfolios" :key="item">
+          <a :href="item.link" target="_blank">
+            <img
+              :src="require(`@/assets/images/${item.image}`)"
+              alt="portfolio-picture"
+              class="portfolio-img"
+          /></a>
+          <div class="portfolio-text">
+            <a :href="item.link" target="_blank">{{ item.name }}</a>
+            <a :href="item.githubLink" target="_blank">
+              <img
+                src="@/assets/images/github.svg"
+                alt="link to github"
+                class="portfolio-github-img"
+              />
+            </a>
+          </div>
+        </box>
+      </div>
+</template>
+
+<script>
+import box from "./box";
+export default {
+  name: "portfolios",
+  components: {
+      box
+  },
+  props: {
+    portfolios: Array,
+  },
+};
+</script>
+
+<style scoped>
+.portfolios {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.portfolio {
+  width: -webkit-fill-available;
+  max-width: 25rem;
+}
+.portfolio-img {
+  width: -webkit-fill-available;
+}
+.portfolio-text {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+.portfolio-github-img {
+  width: 2rem;
+  height: 2rem;
+}
+</style>

@@ -1,17 +1,14 @@
 <template>
   <div id="app">
-    <div class="bg bg-purple"></div>
-    <div class="bg bg-green"></div>
-    <div class="bg bg-blue"></div>
-    <header>
-      <div class="logo">
-        <img id="logo" src="./assets/images/logo.svg" alt="logo" />
-      </div>
-      <div class="title font-karla">The "Amiria703" Personal Website</div>
-    </header>
-    <div class="box">
-      <div class="title bottom-line">About Me:</div>
-      <p class="text">
+    <!-- Background blurred colors: -->
+    <bg-blurred color="green"></bg-blurred>
+    <bg-blurred color="blue"></bg-blurred>
+    <bg-blurred color="purple"></bg-blurred>
+    <!-- Top Header: -->
+    <top-header />
+    <!-- About: -->
+    <box title="About Me">
+      <p>
         Hello Guys! I'm Amir Hossein Maher or in the digital world, "amiria703"
         who's a 16 y.o. boy studying Math-Physics in 10th grade.
         <br />
@@ -19,94 +16,146 @@
         the most wonderful stupid creatures ever called Computer. Computers do
         as you command, I love this habit of them.
         <br />
-        For now, I'm looking for a part-time/half-time freelancing or
-        Face-to-face job in Karaj, Alborz Province, Iran (It's where I live).
+        For now, I'm looking for a part-time/half-time in Karaj, Alborz
+        Province, Iran or freelancing job.
       </p>
-    </div>
-    <div class="box">
-      <div class="title bottom-line">My Skills:</div>
-      <div class="skill-text">HTML: 90%</div>
-      <div class="skill-red">
-        <div class="skill-90"></div>
+    </box>
+    <!-- Skills: -->
+    <box title="My Skills">
+      <skills :skills="skills" />
+    </box>
+    <!-- Portfolios: -->
+    <box title="My Portfolios">
+      <portfolios :portfolios="portfolios"></portfolios>
+    </box>
+    <!-- Contact: -->
+    <box title="Ways to Connect">
+      <div class="links text-bigger">
+        <span class="margin-1"
+          >Telegram: <a href="https://t.me/amiria703">@amiria703</a></span
+        >
+        <span class="margin-1"
+          >Email:
+          <a href="mailto:amiria703@gmail.com">amiria703@gmail.com</a></span
+        >
+        <span class="margin-1"
+          >Whatsapp:
+          <a href="https://wa.me/+989229716813">+989229716813</a></span
+        >
+        <span class="margin-1"
+          >Call & SMS: <a href="tel:+989229716813">+989229716813</a></span
+        >
       </div>
-    </div>
-    <div class="box">
-      <div class="title bottom-line">My Portfolios:</div>
-      <div class="portfolios">
-        <div class="portfolio box">
-          <img
-            src="./assets/images/temp.jpg"
-            alt="portfolio-picture"
-            class="portfolio-img"
-          />
-          <div class="text">My Own Website</div>
-        </div>
-        <div class="portfolio box">
-          <img
-            src="./assets/images/temp.jpg"
-            alt="portfolio-picture"
-            class="portfolio-img"
-          />
-          <div class="text">My Own Website</div>
-        </div>
-        <div class="portfolio box">
-          <img
-            src="./assets/images/temp.jpg"
-            alt="portfolio-picture"
-            class="portfolio-img"
-          />
-          <div class="text">My Own Website</div>
-        </div>
+    </box>
+    <!-- Footer: -->
+    <div class="footer">
+      <div class="text-bigger">
+        Made with ❤️ @ 🇮🇷 by VueJS and rendered using {{ browser }}
       </div>
-    </div>
-    <div class="links">
-      <div class="link"><a href=""></a></div>
-    </div>
-    <div class="texts">
-      <!-- <div class="text">
-        این صفحه اینترنتی با VueJS ساخته و توسط {{ browser }} به نمایش درآمده
-        است
-      </div> -->
     </div>
   </div>
 </template>
 
 <script>
-import "./assets/emoji/emoji.js";
+import topHeader from "./components/topHeader";
+import box from "./components/box";
+import skills from "./components/skills";
+import bgBlurred from "./components/bgBlurred";
+import portfolios from "./components/portfolios";
 export default {
   name: "App",
-  components: {},
-  data: function () {
-    return {};
+  components: {
+    topHeader,
+    box,
+    skills,
+    bgBlurred,
+    portfolios,
   },
-  mounted: async function () {
+  data: () => {
+    return {
+      // All string,
+      // name: name of skill,
+      // percent: percent of skill,
+      // color: color of skill bar,
+      // showPercent: the percent which can be replaced with original percent in top part
+      skills: [
+        {
+          name: "HTML",
+          percent: "90",
+          color: "red",
+        },
+        {
+          name: "CSS",
+          percent: "90",
+          color: "blue",
+        },
+        {
+          name: "JS",
+          percent: "50",
+          color: "red",
+        },
+        {
+          name: "VueJS",
+          percent: "50",
+          color: "green",
+        },
+        {
+          name: "C#",
+          percent: "50",
+          color: "blue",
+        },
+        {
+          name: "English",
+          percent: "50",
+          showPercent: "C1",
+          color: "green",
+        },
+      ],
+      portfolios: [
+        // name: name of portfolio,
+        // image: name of image in @/assets/images
+        // link: link to work website
+        // githubLink: link to github of work
+        {
+          name: "My Own Website",
+          image: "my-website.png",
+          link: "https://amiria703.github.io",
+          githubLink: "https://github.com/amiria703/my-website",
+        },
+      ],
+    };
+  },
+  mounted: async () => {
+    // Add animation of being hidden after 2500ms:
     await new Promise((r) => setTimeout(r, 2500));
     document.getElementById("white").classList.add("hidden");
+    // Remove after 500ms:
     await new Promise((r) => setTimeout(r, 500));
     document.getElementById("white").remove();
   },
   computed: {
-    browser: function () {
+    // Detect browser based on user-agent for use in footer:
+    browser: () => {
       if (
         (navigator.userAgent.indexOf("Opera") ||
           navigator.userAgent.indexOf("OPR")) != -1
       ) {
-        return "اُپِرا";
+        return "Opera";
       } else if (navigator.userAgent.indexOf("Edg") != -1) {
-        return "اِدج";
+        return "Microsoft Edge";
       } else if (navigator.userAgent.indexOf("Chrome") != -1) {
-        return "کُروم";
+        return "Google Chrome";
       } else if (navigator.userAgent.indexOf("Safari") != -1) {
-        return "سافاری";
+        return "Apple Safari";
       } else if (navigator.userAgent.indexOf("Firefox") != -1) {
-        return "فایرفاکس";
+        return "Mozilla Firefox";
       } else if (
         navigator.userAgent.indexOf("MSIE") != -1 ||
         !!document.documentMode == true
       ) {
-        return "اینترنت اکسپلورر";
+        return "Internet Explorer";
       } else {
-        return "مرورگر";
+        return "a browser";
       }
     },
   },
@@ -114,125 +163,58 @@ export default {
 </script>
 
 <style>
-@import "./assets/emoji/emoji.css";
-</style>
-
-<style>
 /* Google Fonts: */
+/* Fonts used: Karla & Titillium Web */
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@1,600&family=Titillium+Web:wght@300&display=swap");
-/* 
-@font-face {
-  font-family: Vazir;
-  src: url("./assets/fonts/Vazir-Regular.eot");
-  src: url("./assets/fonts/Vazir-Regular.eot?#iefix")
-      format("embedded-opentype"),
-    url("./assets/fonts/Vazir-Regular.woff2") format("woff2"),
-    url("./assets/fonts/Vazir-Regular.woff") format("woff"),
-    url("./assets/fonts/Vazir-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-} */
+
+* {
+  cursor: default;
+  user-select: none;
+}
 #app {
   direction: ltr;
   font-family: "Titillium Web", sans-serif;
 }
+.title {
+  color: #7e11ad;
+  font-size: xx-large;
+}
+.text-bigger {
+  font-size: x-large;
+}
+a {
+  font-style: italic;
+  color: #6d7bff;
+  cursor: pointer;
+}
+a:hover {
+  color: #3649f7;
+}
+a img {
+  cursor: pointer;
+}
 .font-karla {
   font-family: "Karla", sans-serif;
 }
-#logo {
-  width: 7rem;
-  height: 7rem;
-}
-.logo {
-  height: 7rem;
-  margin-right: 10px;
-}
-header {
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-}
-.bg {
-  position: fixed;
-  z-index: -999;
-}
-.bg-green {
-  background: radial-gradient(
-    circle,
-    rgba(193, 255, 209, 1) 0%,
-    rgba(255, 255, 255, 0) 60%
-  );
-  width: 30rem;
-  height: 30rem;
-  left: 52%;
-  top: 10%;
-  opacity: 20%;
-}
-.bg-blue {
-  background: radial-gradient(
-    circle,
-    rgb(94, 157, 216) 0%,
-    rgba(255, 255, 255, 0) 40%
-  );
-  width: 30rem;
-  height: 30rem;
-  opacity: 25%;
-  left: 10%;
-  top: 30%;
-}
-.bg-purple {
-  background: radial-gradient(
-    circle,
-    rgba(126, 17, 173, 1) 0%,
-    rgba(255, 255, 255, 0) 40%
-  );
-  width: 40rem;
-  height: 40rem;
-  left: 25%;
-  top: 50%;
-  opacity: 30%;
-}
-.title {
-  color: #7e11ad;
-  font-size: 31pt;
-}
-.box {
-  padding: 1rem;
-  box-shadow: 0px 0px 8px -5px #000000;
-  background: rgba(0, 0, 0, 0);
-  border-radius: 1rem;
+.margin-1 {
   margin: 1rem;
 }
-.bottom-line {
-  padding-bottom: 0.5rem;
-  border: solid #000;
-  border-width: 0 0 1px 0;
-  margin-bottom: 1rem;
-}
-.portfolios {
+
+/* Other Styles: */
+
+/* Contact Part: */
+.links {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.portfolio {
-  width: -webkit-fill-available;
-  max-width: 25rem;
-}
-.portfolio-img {
-  width: -webkit-fill-available;
-}
-.skill-text {
-  font-size: 20pt;
-}
-.skill-red {
-  background: lightcoral;
-  height: 1.5rem;
-  width: 50%;
-}
-.skill-90 {
-  width: 90%;
-  background: red;
-  height: 1.5rem;
+
+/* Footer Part: */
+.footer {
+  text-align: center;
+  background: #7e11ad;
+  color: white;
+  padding: 1rem;
 }
 </style>

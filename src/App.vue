@@ -83,26 +83,31 @@ export default {
           name: "HTML",
           percent: "90",
           color: "red",
+          showPercent: "Advanced",
         },
         {
           name: "CSS",
-          percent: "90",
+          percent: "50",
           color: "blue",
+          showPercent: "Intermediate",
         },
         {
           name: "JS",
           percent: "50",
           color: "red",
+          showPercent: "Intermediate",
         },
         {
           name: "VueJS",
           percent: "50",
           color: "green",
+          showPercent: "Intermediate",
         },
         {
           name: "C#",
           percent: "50",
           color: "blue",
+          showPercent: "Intermediate",
         },
         {
           name: "English",
@@ -118,9 +123,15 @@ export default {
         // githubLink: link to github of work
         {
           name: "My Own Website",
-          image: "my-website.png",
+          image: "my-website.jpg",
           link: "https://amiria703.github.io",
           githubLink: "https://github.com/amiria703/my-website",
+        },
+        {
+          name: "Simple Login",
+          image: "simple-login.jpg",
+          link: "https://amiria703.github.io/simple-login",
+          githubLink: "https://github.com/amiria703/simple-login"
         },
       ],
     };

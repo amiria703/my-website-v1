@@ -1,24 +1,24 @@
 <template>
   <div class="portfolios text-bigger">
-        <box class="portfolio" v-for="item in portfolios" :key="item">
-          <a :href="item.link" target="_blank">
-            <img
-              :src="require(`@/assets/images/${item.image}`)"
-              alt="portfolio-picture"
-              class="portfolio-img"
-          /></a>
-          <div class="portfolio-text">
-            <a :href="item.link" target="_blank">{{ item.name }}</a>
-            <a :href="item.githubLink" target="_blank">
-              <img
-                src="@/assets/images/github.svg"
-                alt="link to github"
-                class="portfolio-github-img"
-              />
-            </a>
-          </div>
-        </box>
+    <box class="portfolio" v-for="item in portfolios" :key="item">
+      <a :href="item.link" target="_blank">
+        <img
+          :src="require(`@/assets/images/${item.image}`)"
+          alt="portfolio-picture"
+          class="portfolio"
+      /></a>
+      <div class="portfolio-text">
+        <a :href="item.link" target="_blank">{{ item.name }}</a>
+        <a :href="item.githubLink" target="_blank">
+          <img
+            src="@/assets/images/github.svg"
+            alt="link to github"
+            class="portfolio-github-img"
+          />
+        </a>
       </div>
+    </box>
+  </div>
 </template>
 
 <script>
@@ -26,7 +26,7 @@ import box from "./box";
 export default {
   name: "portfolios",
   components: {
-      box
+    box,
   },
   props: {
     portfolios: Array,
@@ -42,11 +42,14 @@ export default {
   justify-content: space-evenly;
 }
 .portfolio {
+  width: 100%;
+  width: -moz-fill-available;
   width: -webkit-fill-available;
+  width: fill-available;
   max-width: 25rem;
-}
-.portfolio-img {
-  width: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .portfolio-text {
   display: flex;
